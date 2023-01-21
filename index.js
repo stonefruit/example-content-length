@@ -42,7 +42,7 @@ app.get('/example-main-fixed', async (req, res) => {
 });
 
 app.get('/example-main-broken', async (req, res) => {
-  const data = JSON.stringify({ data: 'datä' });
+  const data = JSON.stringify({ data: `stonefruit’s data` });
   const result = await request.post(data, 'application/json', data.length);
   res.send(result);
 });
