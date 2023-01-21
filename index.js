@@ -31,6 +31,12 @@ app.get('/example4', async (req, res) => {
   res.send(result);
 });
 
+app.get('/example-main-broken', async (req, res) => {
+  const data = JSON.stringify({ data: `stonefruit’s data` });
+  const result = await request.post(data, 'application/json', data.length);
+  res.send(result);
+});
+
 app.get('/example-main-fixed', async (req, res) => {
   const data = JSON.stringify({ data: `stonefruit’s data` });
   const result = await request.post(
@@ -41,17 +47,11 @@ app.get('/example-main-fixed', async (req, res) => {
   res.send(result);
 });
 
-app.get('/example-main-broken', async (req, res) => {
-  const data = JSON.stringify({ data: `stonefruit’s data` });
-  const result = await request.post(data, 'application/json', data.length);
-  res.send(result);
-});
-
 // This endpoint is used to reflect how the body is parsed when different
 // content-length values are used
 app.post('/endpoint', async (req, res) => {
   res.send(
-    `Response from Endpoint 2:\nParsed body: ${req.body}\nReceived content-length header: ${req.headers['content-length']}\n`
+    `Parsed body: ${req.body}\nReceived content-length header: ${req.headers['content-length']}\n`
   );
 });
 
