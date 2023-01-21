@@ -8,31 +8,31 @@ app.use(bodyParser.json());
 const port = 3000;
 
 app.get('/example1', async (req, res) => {
-  const data = 'data';
+  const data = `stonefruit's data`;
   const result = await request.post(data, 'text/html', data.length);
   res.send(result);
 });
 
 app.get('/example2', async (req, res) => {
-  const data = 'data';
+  const data = `stonefruit's data`;
   const result = await request.post(data, 'text/html', 1);
   res.send(result);
 });
 
 app.get('/example3', async (req, res) => {
-  const data = 'datä';
+  const data = `stonefruit’s data`;
   const result = await request.post(data, 'text/html', data.length);
   res.send(result);
 });
 
 app.get('/example4', async (req, res) => {
-  const data = 'datä';
+  const data = `stonefruit’s data`;
   const result = await request.post(data, 'text/html', Buffer.byteLength(data));
   res.send(result);
 });
 
 app.get('/example-main-fixed', async (req, res) => {
-  const data = JSON.stringify({ data: 'datä' });
+  const data = JSON.stringify({ data: `stonefruit’s data` });
   const result = await request.post(
     data,
     'application/json',
