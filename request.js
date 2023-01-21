@@ -9,12 +9,11 @@ const port = 3000;
  * @returns {Promise<string>}
  */
 const post = async (data, contentType, contentLength) => {
-  const pathType = contentType === 'text/html' ? 'text' : 'json';
   return new Promise((resolve, reject) => {
     const options = {
       hostname: 'localhost',
       port,
-      path: `/endpoint-${pathType}`,
+      path: `/endpoint`,
       method: 'POST',
       headers: {
         'Content-Type': contentType,
